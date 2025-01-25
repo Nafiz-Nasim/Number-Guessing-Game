@@ -39,28 +39,58 @@
       </form>
 
       <!-- Previous Guesses -->
-      <div class="mt-8">
+      <div
+        id="PreviousGaussesdiv"
+        class="shadow shadow-xl rounded-2xl py-5 hidden mt-8 flex flex-col justify-center items-center"
+      >
         <h2 class="text-xl font-bold text-gray-800 mb-3">
           📜 Previous Guesses
         </h2>
-        <ul
+        <h3
           id="PreviousGausses"
-          class="list-disc list-inside text-gray-700 space-y-1"
-        >
-          <!-- Populate previous guesses here -->
-        </ul>
+          class="text-gray-700 text-xs text-center font-bold"
+        ></h3>
+      </div>
+
+      <!-- Win Section -->
+      <div
+        id="win"
+        class="bg-gradient-to-r from-green-400 to-green-600 text-white shadow-lg py-5 rounded-2xl hidden mt-8 flex flex-col justify-center items-center"
+      >
+        <h2 class="text-xl font-bold mb-2">
+          🎉 Congratulations, You got it right!
+        </h2>
       </div>
 
       <!-- Hint Section -->
-      <div class="mt-8">
+      <div
+        id="hintdiv"
+        class="shadow shadow-xl py-5 rounded-2xl hidden mt-8 flex flex-col justify-center items-center"
+      >
         <h2 class="text-xl font-bold text-gray-800 mb-2">💡 Hint</h2>
         <p id="hint" class="text-lg text-gray-700 italic">
           <!-- Hint to guess the number -->
         </p>
       </div>
 
+      <!-- Game Over Section -->
+      <div
+        id="Gameover"
+        class="bg-gradient-to-r from-red-500 to-red-700 text-white shadow-lg py-5 rounded-2xl hidden mt-8 flex flex-col justify-center items-center"
+      >
+        <h2 class="text-xl font-bold mb-2">
+          ❌ Game Over
+        </h2>
+        <p id="over" class="text-lg italic">
+          Better luck next time!
+        </p>
+      </div>
+
       <!-- Guesses Remaining -->
-      <div class="mt-6">
+      <div
+        id="guessesremainingdiv"
+        class="shadow shadow-xl py-5 rounded-2xl hidden mt-6 flex flex-col justify-center items-center"
+      >
         <h2 class="text-xl font-bold text-gray-800 mb-2">
           ⏳ Guesses Remaining
         </h2>

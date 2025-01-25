@@ -5,7 +5,12 @@ const guessesremaining = document.getElementById("guessesremaining");
 const PreviousGuesses = document.getElementById("PreviousGausses");
 const hint = document.getElementById("hint");
 const reset = document.getElementById("reset");
-
+const PreviousGaussesdiv=document.getElementById("PreviousGaussesdiv");
+const hintdiv=document.getElementById("hintdiv");
+const guessesremainingdiv=document.getElementById("guessesremainingdiv")
+const gameover=document.getElementById("Gameover")
+const over=document.getElementById("over")
+const win=document.getElementById("win")
 let prevguess = [];
 let numguess = 1;
 let playgame = true;
@@ -14,6 +19,7 @@ let playgame = true;
 newgame();
 
 if (playgame) {
+
   submit.addEventListener("click", function (event) {
     event.preventDefault();
     const guess = parseInt(input.value);
@@ -28,8 +34,9 @@ function validateGuess(guess) {
     alert(`Enter a number between 1 and 100.`);
   } else {
     prevguess.push(guess);
-    if (numguess === 10) {
+    if (numguess ===10) {
       displayGuess(guess);
+      gaveovercard(`Game Over. The random number was ${guess}`);
       displayMessage(`Game Over. The random number was ${randomnumber}`);
       endgame();
     } else {
@@ -40,9 +47,13 @@ function validateGuess(guess) {
 }
 
 function checkGuess(guess) {
+  hintdiv.classList.remove("hidden")
+  guessesremainingdiv.classList.remove("hidden")
   if (guess === randomnumber) {
+    
     displayMessage(`🎉 You got it right!`);
-    endgame();
+   
+    winendgame();
   } else if (guess < randomnumber) {
     displayMessage(`🔽 The number is too low.`);
   } else if (guess > randomnumber) {
@@ -51,6 +62,7 @@ function checkGuess(guess) {
 }
 
 function displayGuess(guess) {
+  PreviousGaussesdiv.classList.remove("hidden")
   input.value = "";
   PreviousGuesses.innerHTML += `${guess} `;
   numguess++;
@@ -59,13 +71,20 @@ function displayGuess(guess) {
 
 function displayMessage(message) {
   hint.innerHTML = `${message}`;
+  over.innerHTML=`${message}`
+
 }
 
 function endgame() {
+ 
   input.value = "";
   input.setAttribute("disabled", "true");
   playgame = false;
-  reset.classList.remove("hidden"); // Show the reset button
+  reset.classList.remove("hidden");
+  PreviousGaussesdiv.classList.add("hidden"); 
+  guessesremainingdiv.classList.add("hidden"); 
+  hintdiv.classList.add("hidden"); 
+  gameover.classList.remove("hidden");
 }
 
 // Fixing the newgame function
@@ -81,5 +100,28 @@ function newgame() {
     input.removeAttribute("disabled");
     playgame = true;
     reset.classList.add("hidden"); // Hide the reset button
+    win.classList.add("hidden");
+    over.classList.add("hidden");
+    gameover.classList.add("hidden");
+    
   });
+
 }
+function gaveovercard(numguess){
+  if (numguess === 10){
+    over.innerHTML=`Game Over. The random number was ${randomnumber}`
+  }
+
+}
+function winendgame() {
+  
+  win.classList.remove("hidden");
+  input.value = "";
+  input.setAttribute("disabled", "true");
+  playgame = false;
+  reset.classList.remove("hidden");
+  PreviousGaussesdiv.classList.add("hidden"); 
+  guessesremainingdiv.classList.add("hidden"); 
+  hintdiv.classList.add("hidden"); 
+}
+ 
