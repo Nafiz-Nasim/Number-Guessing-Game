@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="src/output.css" />
+  </head>
+  <body
+    class="bg-gradient-to-r from-orange-400 to-yellow-500 min-h-screen flex items-center justify-center"
+  >
+    <div
+      class="max-w-md w-full bg-white shadow-2xl rounded-3xl p-8 shadow-black"
+    >
+      <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-6">
+        🎯 Number Guessing Game
+      </h1>
+      <p class="text-center text-gray-600 mb-8">
+        Guess the number between <strong>1</strong> and <strong>100</strong>!
+      </p>
+
+      <!-- Input Form -->
+      <form action="" method="POST" class="space-y-6">
+        <div>
+          <input
+            id="input"
+            name="guess"
+            type="text"
+            placeholder="Enter your guess"
+            class="w-full p-4 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-4 focus:ring-orange-300"
+          />
+        </div>
+        <button
+          id="submit"
+          class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 text-white py-3 rounded-lg text-lg font-semibold hover:bg-gradient-to-l hover:from-orange-500 hover:to-yellow-600 transition"
+        >
+          Submit Guess
+        </button>
+      </form>
+
+      <!-- Previous Guesses -->
+      <div class="mt-8">
+        <h2 class="text-xl font-bold text-gray-800 mb-3">
+          📜 Previous Guesses
+        </h2>
+        <ul
+          id="PreviousGausses"
+          class="list-disc list-inside text-gray-700 space-y-1"
+        >
+          <!-- Populate previous guesses here -->
+        </ul>
+      </div>
+
+      <!-- Hint Section -->
+      <div class="mt-8">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">💡 Hint</h2>
+        <p id="hint" class="text-lg text-gray-700 italic">
+          <!-- Hint to guess the number -->
+        </p>
+      </div>
+
+      <!-- Guesses Remaining -->
+      <div class="mt-6">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">
+          ⏳ Guesses Remaining
+        </h2>
+        <p id="guessesremaining" class="text-lg text-gray-700 font-semibold">
+          <!-- Populate guesses remaining -->
+        </p>
+      </div>
+
+      <!-- Reset Button -->
+      <form action="" method="POST" class="mt-8">
+        <button
+          id="reset"
+          name="reset"
+          value="1"
+          class="hidden w-full bg-gradient-to-r from-orange-400 to-yellow-500 text-white py-3 rounded-lg text-lg font-semibold hover:bg-gradient-to-l hover:from-orange-500 hover:to-yellow-600 transition"
+        >
+          🔄 Start New Game
+        </button>
+      </form>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
