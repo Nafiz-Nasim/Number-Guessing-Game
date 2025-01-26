@@ -12,6 +12,7 @@ const gameover=document.getElementById("Gameover")
 const over=document.getElementById("over")
 const win=document.getElementById("win")
 const instruction=document.getElementById("instruction")
+const form=document.getElementById("form")
 let prevguess = [];
 let numguess = 1;
 let playgame = true;
@@ -40,6 +41,7 @@ function validateGuess(guess) {
       displayGuess(guess);
       gaveovercard(`Game Over. The random number was ${guess}`);
       displayMessage(`Game Over. The random number was ${randomnumber}`);
+      form.classList.add("hidden")
       endgame();
     } else {
       displayGuess(guess);
@@ -54,6 +56,7 @@ function checkGuess(guess) {
   if (guess === randomnumber) {
     
     displayMessage(`🎉 You got it right!`);
+    
    
     winendgame();
   } else if (guess < randomnumber) {
@@ -106,6 +109,7 @@ function newgame() {
     win.classList.add("hidden");
     over.classList.add("hidden");
     gameover.classList.add("hidden");
+    form.classList.remove("hidden")
 
     
   });
@@ -114,6 +118,7 @@ function newgame() {
 function gaveovercard(numguess){
   if (numguess === 10){
     over.innerHTML=`Game Over. The random number was ${randomnumber}`
+    
   }
 
 }
@@ -127,5 +132,6 @@ function winendgame() {
   PreviousGaussesdiv.classList.add("hidden"); 
   guessesremainingdiv.classList.add("hidden"); 
   hintdiv.classList.add("hidden"); 
+  form.classList.add("hidden")
 }
  
