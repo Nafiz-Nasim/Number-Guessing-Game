@@ -11,6 +11,7 @@ const guessesremainingdiv=document.getElementById("guessesremainingdiv")
 const gameover=document.getElementById("Gameover")
 const over=document.getElementById("over")
 const win=document.getElementById("win")
+const instruction=document.getElementById("instruction")
 let prevguess = [];
 let numguess = 1;
 let playgame = true;
@@ -19,6 +20,7 @@ let playgame = true;
 newgame();
 
 if (playgame) {
+  
 
   submit.addEventListener("click", function (event) {
     event.preventDefault();
@@ -55,14 +57,15 @@ function checkGuess(guess) {
    
     winendgame();
   } else if (guess < randomnumber) {
-    displayMessage(`🔽 The number is too low.`);
+    displayMessage(`📉 Too low! Try guessing a higher number. ⬆️`);
   } else if (guess > randomnumber) {
-    displayMessage(`🔼 The number is too high.`);
+    displayMessage(`📈 Too high! Try guessing a lower number. ⬇️`);
   }
 }
 
 function displayGuess(guess) {
   PreviousGaussesdiv.classList.remove("hidden")
+  instruction.classList.add("hidden");
   input.value = "";
   PreviousGuesses.innerHTML += `${guess} `;
   numguess++;
@@ -103,6 +106,7 @@ function newgame() {
     win.classList.add("hidden");
     over.classList.add("hidden");
     gameover.classList.add("hidden");
+
     
   });
 
