@@ -53,6 +53,8 @@ function validateGuess(guess) {
 function checkGuess(guess) {
   hintdiv.classList.remove("hidden")
   guessesremainingdiv.classList.remove("hidden")
+ 
+  
   if (guess === randomnumber) {
     
     displayMessage(`🎉 You got it right!`);
